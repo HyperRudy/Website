@@ -108,15 +108,7 @@ const Projects: React.FC = () => {
                 ))}
               </div>
               
-              <div className="flex">
-                <a 
-                  href={project.github}
-                  className="flex items-center space-x-2 text-green-400 hover:text-white transition-colors"
-                >
-                  <Github size={16} />
-                  <span>Source</span>
-                </a>
-              </div>
+            
             </div>
           ))}
         </div>
