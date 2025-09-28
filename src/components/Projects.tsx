@@ -69,8 +69,9 @@ const Projects: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-green-400 mx-auto mb-8"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            A collection of cybersecurity tools and educational projects demonstrating 
-            practical skills in security research, cryptography, and system analysis.
+            A collection of cybersecurity projects demonstrating 
+            practical skills in security research, cryptography, and system analysis. All the projects can be found 
+            on my github profile.
           </p>
         </div>
 
