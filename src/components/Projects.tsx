@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github, Shield, Server, Key, Bug, Eye, Lock, Image, RotateCcw } from 'lucide-react';
+import { Github, Shield, Key, Bug, Image, RotateCcw } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -10,7 +10,7 @@ const Projects: React.FC = () => {
       technologies: ['Python', 'System APIs', 'Security Research'],
       status: 'Production',
       link: '#',
-      github: '#'
+      github: 'https://github.com/HyperRudy/Internship-Tasks/blob/main/Keylogger'
     },
     {
       icon: <Image className="w-8 h-8" />,
@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
       technologies: ['Python', 'PIL/Pillow', 'Steganography', 'Image Processing'],
       status: 'Production',
       link: '#',
-      github: '#'
+      github: 'https://github.com/HyperRudy/Internship-Tasks/blob/main/PixelManipulation'
     },
     {
       icon: <Shield className="w-8 h-8" />,
@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
       technologies: ['Python', 'Cryptography', 'Security Analysis', 'Pattern Recognition'],
       status: 'Production',
       link: '#',
-      github: '#'
+      github: 'https://github.com/HyperRudy/Internship-Tasks/blob/main/PasswordAnalyser'
     },
     {
       icon: <RotateCcw className="w-8 h-8" />,
@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
       technologies: ['Python', 'Cryptography', 'Algorithm Implementation'],
       status: 'Production',
       link: '#',
-      github: '#'
+      github: 'https://github.com/HyperRudy/Internship-Tasks/blob/main/CaesarCipher'
     },
     {
       icon: <Bug className="w-8 h-8" />,
@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
       technologies: ['Python', 'APIs', 'Web Scraping', 'Data Analysis'],
       status: 'In Development',
       link: '#',
-      github: '#'
+      github: ''
     }
   ];
 
@@ -108,7 +108,18 @@ const Projects: React.FC = () => {
                   </span>
                 ))}
               </div>
-              
+               
+              {project.status !== 'In Development' && (
+                <div className="flex">
+                  <a 
+                    href={project.github}
+                    className="flex items-center space-x-2 text-green-400 hover:text-white transition-colors"
+                  >
+                    <Github size={16} />
+                    <span>Source</span>
+                  </a>
+                </div>
+              )}
             
             </div>
           ))}

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Shield, Code, Server, Database, Brain, PenTool as Tool } from 'lucide-react';
+import { Shield, Code, Server, Database} from 'lucide-react';
 
 const Skills: React.FC = () => {
   const skillCategories = [
     {
       icon: <Shield className="w-8 h-8" />,
       title: 'Security Tools',
-      skills: ['Metasploit', 'Burp Suite', 'Wireshark', 'Nmap', 'Kali Linux', 'OWASP ZAP']
+      skills: ['Metasploit', 'Burp Suite', 'Wireshark', 'Nmap', 'OWASP ZAP','SQLmap','John the Ripper','Hydra','Nikto','Nuclei','Aircrack-ng','Hashcat','Maltego','Ghidra','Autopsy','SSTImap','Bettercap','Ettercap','Recon-ng','Holehe','Spiderfoot']
     },
     {
       icon: <Code className="w-8 h-8" />,
@@ -16,19 +16,19 @@ const Skills: React.FC = () => {
     {
       icon: <Server className="w-8 h-8" />,
       title: 'Infrastructure',
-      skills: ['Linux', 'Windows']
+      skills: ['Linux','Windows']
     },
     {
       icon: <Database className="w-8 h-8" />,
       title: 'Databases',
-      skills: ['SQL', 'NoSQL', 'SQL Injection', 'Database Security']
+      skills: ['SQL', 'NoSQL']
     }
   ];
 
   const certifications = [
     'Web Application Penetration Testing (TryHackMe)',
     'Junior Penetration Tester (TryHackMe)',
-    'Introduction to Networking by CCNA'
+    'Introduction to Networking (CCNA)'
   ];
 
   return (
@@ -87,7 +87,7 @@ const Skills: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-black/50 border border-green-400/30 rounded-lg p-8">
+         <div className="bg-black/50 border border-green-400/30 rounded-lg p-8">
           <h3 className="text-2xl font-bold text-white mb-6 text-center">TryHackMe Profile</h3>
           <div className="flex justify-center">
             <iframe
