@@ -6,7 +6,7 @@ const Skills: React.FC = () => {
     {
       icon: <Shield className="w-8 h-8" />,
       title: 'Security Tools',
-      skills: ['Metasploit', 'Burp Suite', 'Wireshark', 'Nmap', 'OWASP ZAP','SQLmap','John the Ripper','Hydra','Nikto','Nuclei','Aircrack-ng','Hashcat','Maltego','Ghidra','Autopsy','SSTImap','Bettercap','Ettercap','Recon-ng','Holehe','Spiderfoot']
+      skills: ['Metasploit', 'Burp Suite', 'Wireshark', 'Nmap', 'OWASP ZAP','SQLmap','John the Ripper','Hydra','Nikto','Nuclei','Hashcat','Maltego','Ghidra','SSTImap','Bettercap','Ettercap','Recon-ng','Holehe','Spiderfoot']
     },
     {
       icon: <Code className="w-8 h-8" />,
