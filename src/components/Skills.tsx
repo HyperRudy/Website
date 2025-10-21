@@ -1,12 +1,14 @@
 import React from 'react';
-import { Shield, Code, Server, Database} from 'lucide-react';
+import { Shield, Code, Server, Database, X } from 'lucide-react';
 
 const Skills: React.FC = () => {
+  const [selectedCert, setSelectedCert] = React.useState<string | null>(null);
+
   const skillCategories = [
     {
       icon: <Shield className="w-8 h-8" />,
       title: 'Security Tools',
-      skills: ['Metasploit', 'Burp Suite', 'Wireshark', 'Nmap', 'OWASP ZAP','SQLmap','John the Ripper','Hydra','Nikto','Nuclei','Hashcat','Maltego','Ghidra','SSTImap','Bettercap','Ettercap','Recon-ng','Holehe','Spiderfoot']
+      skills: ['Metasploit', 'Burp Suite', 'Wireshark', 'Nmap', 'Kali Linux','SQLmap','JTR','Hydra','Nikto','Nuclei','Ghidra','SSTImap']
     },
     {
       icon: <Code className="w-8 h-8" />,
@@ -16,23 +18,41 @@ const Skills: React.FC = () => {
     {
       icon: <Server className="w-8 h-8" />,
       title: 'Infrastructure',
-      skills: ['Linux','Windows']
+      skills: ['Linux', 'Windows']
     },
     {
       icon: <Database className="w-8 h-8" />,
       title: 'Databases',
-      skills: ['SQL', 'NoSQL']
+      skills: ['SQL', 'NoSQL', 'SQL Injection']
     }
   ];
 
   const certifications = [
-    'Web Application Penetration Testing (TryHackMe)',
-    'Junior Penetration Tester (TryHackMe)',
-    'Introduction to Networking (CCNA)'
+    {
+      name: 'Web Application Penetration Testing (TryHackMe)',
+      image: '/certificates/WAPP.png'
+    },
+    {
+      name: 'Junior Penetration Tester (TryHackMe)',
+      image: '/certificates/JPT.png'
+    },
+    {
+      name: 'Introduction to Networking by CCNA',
+      image: '/certificates/Networking.png'
+    }
   ];
 
+  const openCertModal = (imagePath: string) => {
+    setSelectedCert(imagePath);
+  };
+
+  const closeCertModal = () => {
+    setSelectedCert(null);
+  };
+
   return (
-    <section id="skills" className="py-20 px-6">
+    <>
+      <section id="skills" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -79,15 +99,16 @@ const Skills: React.FC = () => {
             {certifications.map((cert, index) => (
               <div 
                 key={index}
-                className="bg-green-400/10 border border-green-400/50 rounded-lg p-4 text-center hover:bg-green-400/20 transition-colors"
+                className="bg-green-400/10 border border-green-400/50 rounded-lg p-4 text-center hover:bg-green-400/20 transition-colors cursor-pointer"
+                onClick={() => openCertModal(cert.image)}
               >
-                <span className="text-green-400 font-mono font-bold">{cert}</span>
+                <span className="text-green-400 font-mono font-bold">{cert.name}</span>
               </div>
             ))}
           </div>
         </div>
 
-         <div className="bg-black/50 border border-green-400/30 rounded-lg p-8">
+        <div className="bg-black/50 border border-green-400/30 rounded-lg p-8">
           <h3 className="text-2xl font-bold text-white mb-6 text-center">TryHackMe Profile</h3>
           <div className="flex justify-center">
             <iframe
@@ -107,7 +128,37 @@ const Skills: React.FC = () => {
           </p>
         </div>
       </div>
-    </section>
+      </section>
+
+      {/* Certification Modal */}
+      {selectedCert && (
+        <div 
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={closeCertModal}
+        >
+          <div 
+            className="relative max-w-4xl max-h-[90vh] bg-black/90 border border-green-400/50 rounded-lg overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeCertModal}
+              className="absolute top-4 right-4 z-10 bg-black/80 text-green-400 hover:text-white p-2 rounded-full border border-green-400/50 hover:border-green-400 transition-colors"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={selectedCert}
+              alt="Certification"
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMTExIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMwMGZmNDEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5DZXJ0aWZpY2F0aW9uIEltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4=';
+              }}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
