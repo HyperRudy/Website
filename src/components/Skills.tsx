@@ -30,15 +30,15 @@ const Skills: React.FC = () => {
   const certifications = [
     {
       name: 'Web Application Penetration Testing (TryHackMe)',
-      image: 'https://github.com/HyperRudy/Website/blob/main/Certificates/WAPP.png'
+      image: '/Certificates/WAPP.png'
     },
     {
       name: 'Junior Penetration Tester (TryHackMe)',
-      image: 'https://github.com/HyperRudy/Website/blob/main/Certificates/JPT.png'
+      image: '/Certificates/JPT.png'
     },
     {
       name: 'Introduction to Networking by CCNA',
-      image: 'https://github.com/HyperRudy/Website/blob/main/Certificates/Networking.png'
+      image: '/Certificates/Networking.png'
     }
   ];
 
