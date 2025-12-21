@@ -11,6 +11,24 @@ const Skills: React.FC = () => {
       skills: ['Metasploit', 'Burp Suite', 'Wireshark', 'Nmap', 'Kali Linux','SQLmap','JTR','Hydra','Nikto','Nuclei','Ghidra','SSTImap']
     },
     {
+      icon: <Shield className="w-8 h-8" />,
+      title: 'Web Pentesting Skills',
+      skills: [
+        'IDOR (Insecure object direct references)',
+        'File Inclusion (LFI/RFI)',
+        'SSRF (Server-Side Request Forgery)',
+        'Cross-Site Scripting (XSS)',
+        'Race Conditions',
+        'Command Injection',
+        'SQL Injection',
+        'SSTI (Server-Side Template Injection)',
+        'Insecure Deserialization',
+        'Prototype Pollution',
+        'HTTP Request Smuggling',
+        'Basic Privilege Escalation Vectors (Linux/Windows)'
+      ]
+    },
+    {
       icon: <Code className="w-8 h-8" />,
       title: 'Programming',
       skills: ['Python', 'C', 'PowerShell', 'Bash']
@@ -23,7 +41,7 @@ const Skills: React.FC = () => {
     {
       icon: <Database className="w-8 h-8" />,
       title: 'Databases',
-      skills: ['SQL', 'NoSQL', 'SQL Injection']
+      skills: ['SQL', 'NoSQL']
     }
   ];
 
