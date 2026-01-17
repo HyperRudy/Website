@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Shield, Key, Bug, Image, RotateCcw } from 'lucide-react';
+import { Github, Shield, Key, Bug, Image, RotateCcw,CircuitBoard } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -46,8 +46,23 @@ const Projects: React.FC = () => {
       technologies: ['Python', 'APIs', 'Web Scraping', 'Data Analysis'],
       status: 'In Development',
       link: '#',
-      github: ''
-    }
+      github: 'https://github.com/HyperRudy/CBsec'
+    },
+   {
+  icon: <CircuitBoard className="w-8 h-8" />,
+  title: "Raspberry Pi Network Security Lab",
+  description:
+    "A self-hosted Raspberry Pi–based network security lab implementing Pi-hole DNS filtering, Suricata IDS, Fail2Ban intrusion prevention, and Tailscale VPN for secure remote access.",
+  technologies: [
+    "Pi-hole",
+    "Suricata",
+    "Fail2Ban",
+    "Tailscale"
+  ],
+  status: "In Development",
+  link: "#",
+  github: ""
+}
   ];
 
   const getStatusColor = (status: string) => {
@@ -109,7 +124,7 @@ const Projects: React.FC = () => {
                 ))}
               </div>
                
-              {project.status !== 'In Development' && (
+              {project.github && (
                 <div className="flex">
                   <a 
                     href={project.github}
