@@ -52,11 +52,12 @@ const Projects: React.FC = () => {
   icon: <CircuitBoard className="w-8 h-8" />,
   title: "Raspberry Pi Network Security Lab",
   description:
-    "A self-hosted Raspberry Pi–based network security lab implementing Pi-hole DNS filtering, Suricata IDS, Fail2Ban intrusion prevention, and Tailscale VPN for secure remote access.",
+    "A self-hosted Raspberry Pi–based network security lab implementing Pi-hole DNS filtering, Suricata IDS connected via Evebox for alert monitoring, Fail2Ban intrusion prevention, and Tailscale VPN for secure remote access.",
   technologies: [
     "Pi-hole",
     "Suricata",
     "Fail2Ban",
+    "Samba for NAS",
     "Tailscale"
   ],
   status: "In Development",
