@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Github, Shield, Key, Bug, Image, RotateCcw,CircuitBoard } from 'lucide-react';
 
 const Projects: React.FC = () => {
@@ -62,7 +62,15 @@ const Projects: React.FC = () => {
   ],
   status: "In Development",
   link: "#",
-  github: ""
+  github: "",
+  blogPosts: [
+    // Replace these placeholder URLs with your actual blog post links
+    "https://medium.com/@rudraksh.shende6/setting-up-fail2ban-on-raspberry-pi-d8f27599b218",
+    "https://medium.com/@rudraksh.shende6/tailscale-for-pi-in-presence-of-pihole-a3e27f24c363",
+    "https://medium.com/@rudraksh.shende6/setting-up-raspberry-pi-as-a-network-gateway-778e9c38cbf9",
+    "https://medium.com/@rudraksh.shende6/setting-up-suricata-on-raspberry-pi-ae791700c258",
+    "https://medium.com/@rudraksh.shende6/setting-up-pihole-on-your-raspberry-pi-f2882539af62" 
+  ]
 }
   ];
 
@@ -75,6 +83,13 @@ const Projects: React.FC = () => {
       default: return 'bg-gray-400/20 text-gray-400 border-gray-400/50';
     }
   };
+
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleBlogList = (i: number) => {
+    setOpenIndex(openIndex === i ? null : i);
+  };
+
 
   return (
     <section id="projects" className="py-20 px-6 bg-black/30">
@@ -127,8 +142,10 @@ const Projects: React.FC = () => {
                
               {project.github && (
                 <div className="flex">
-                  <a 
+                  <a
                     href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center space-x-2 text-green-400 hover:text-white transition-colors"
                   >
                     <Github size={16} />
@@ -136,6 +153,36 @@ const Projects: React.FC = () => {
                   </a>
                 </div>
               )}
+
+              {project.blogPosts && project.blogPosts.length > 0 && (
+                <div className="mt-4">
+                  <button
+                    onClick={() => toggleBlogList(index)}
+                    className="px-4 py-2 bg-green-400 text-black rounded-md font-semibold hover:brightness-90 transition"
+                  >
+                    {openIndex === index ? 'Hide Blog Posts' : 'Open Blog Posts'}
+                  </button>
+
+                  {openIndex === index && (
+                    <div className="mt-3 flex flex-col gap-2">
+                      {project.blogPosts.map((url, i) => (
+                        <a
+                          key={i}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-green-300 hover:text-white"
+                        >
+                          {`Blog Post ${i + 1}`}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+              
+
+
             
             </div>
           ))}
